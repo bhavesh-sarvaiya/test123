@@ -1,0 +1,30 @@
+
+<div *ngIf="first">
+    <h2><span jhiTranslate="beeApp.first.detail.title">First</span> {{first.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="beeApp.first.no">No</span></dt>
+        <dd>
+            <span>{{first.no}}</span>
+        </dd>
+        <dt><span jhiTranslate="beeApp.first.name">Name</span></dt>
+        <dd>
+            <span>{{first.name}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'first/'+ first.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
